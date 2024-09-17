@@ -1,5 +1,6 @@
 import pandas as pd
 from visualization import create_simple_message_frequency_plot
+import os
 
 
 def load_data(file_path):
@@ -9,13 +10,18 @@ def load_data(file_path):
 
 
 def main():
-    data_path = '../data/whatsapp-20240910-221731.csv'
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    data_path = os.path.join(current_dir, '..', 'data', 'whatsapp-20240910-221731.csv')
+
     df = load_data(data_path)
 
     fig = create_simple_message_frequency_plot(df)
 
-    fig.write_image("message_frequency.pdf")
-    print("Plot saved as message_frequency.pdf")
+    output_path = os.path.join(current_dir, '..', 'message_frequency.jpg')
+
+    fig.write_image(output_path, scale=2)
+    print(f"Plot saved as {output_path}")
 
 
 if __name__ == "__main__":
