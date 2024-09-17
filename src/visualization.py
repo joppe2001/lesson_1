@@ -58,7 +58,7 @@ def create_simple_message_frequency_plot(df):
 
 # Main execution
 def main():
-    data_path = '../data/whatsapp-20240910-221731.csv'
+    data_path = '../data/processed/whatsapp-20240910-221731.csv'
     df = pd.read_csv(data_path)
     df['timestamp'] = pd.to_datetime(df['timestamp'])
 
