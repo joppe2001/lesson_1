@@ -4,7 +4,7 @@ from plotly.subplots import make_subplots
 import numpy as np
 
 # Read the data
-df = pd.read_csv('whatsapp-20240910-221731.csv')
+df = pd.read_csv('../data/whatsapp-20240910-221731.csv')
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 
 # Sort by timestamp

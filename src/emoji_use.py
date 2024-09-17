@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the data
-df = pd.read_csv('whatsapp-20240910-221731.csv')
+df = pd.read_csv('../data/whatsapp-20240910-221731.csv')
 
 # Count emoji usage by author
 emoji_usage = df[df['has_emoji']].groupby('author').size()
