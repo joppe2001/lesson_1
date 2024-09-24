@@ -1,5 +1,6 @@
 data/processed/whatsapp-20240910-221731.csv
 data/processed/whatsapp-20240924-154430.csv
 data/processed/whatsapp-20240924-154837.csv
+data/raw/_chat.txt
 /myenv/
 .env
