@@ -14,3 +14,8 @@
 2024-09-24 16:41:38.663 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/bin', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/lib/python3.11/site-packages', '/Users/joppemontezinos/PycharmProjects/school/My_code/src', '../../src/wa_cleaner']
 2024-09-24 16:41:38.663 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
 2024-09-24 16:41:38.663 | ERROR    | wa_cleaner.preprocess:main:95 - File data/raw/_chat.txt not found
+2024-09-24 16:43:06.446 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/bin', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/lib/python3.11/site-packages', '/Users/joppemontezinos/PycharmProjects/school/My_code/src', '../../src/wa_cleaner']
+2024-09-24 16:43:06.446 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
+2024-09-24 16:43:06.643 | INFO     | wa_cleaner.preprocess:process:71 - Found 58294 records
+2024-09-24 16:43:06.660 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20240924-164306.csv
+2024-09-24 16:43:06.745 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!

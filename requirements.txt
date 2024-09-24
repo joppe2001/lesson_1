@@ -1,4 +1,13 @@
-pandas
-plotly
-numpy
+pandas~=2.2.3
+plotly~=5.24.1
+numpy~=2.1.1
 kaleido
+loguru~=0.7.2
+seaborn~=0.13.2
+scikit-learn~=1.5.2
+pydantic~=2.9.2
+click~=8.1.7
+matplotlib~=3.9.2
+requests
+emoji~=2.13.2
+textblob~=0.18.0.post0
