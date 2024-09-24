@@ -1,4 +1,4 @@
 data/processed/*
-data/raw/_chat.txt
+data/raw/*
 /myenv/
 .env
