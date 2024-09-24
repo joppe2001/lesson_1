@@ -1,0 +1,5 @@
+raw = "data/raw"
+processed = "data/processed"
+input = "_chat.txt"
+current = "whatsapp-20240924-154430.parq"
+

@@ -1,0 +1,13 @@
+2024-09-24 15:44:17.277 | DEBUG    | __main__:<module>:20 - Python path: ['/Users/joppemontezinos/PycharmProjects/school/My_code', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/lib/python3.11/site-packages', '/Users/joppemontezinos/PycharmProjects/school/My_code/src', '../../src/wa_cleaner']
+2024-09-24 15:44:17.278 | INFO     | __main__:main:85 - Using Android regexes
+2024-09-24 15:44:17.494 | INFO     | __main__:process:71 - Found 58294 records
+2024-09-24 15:44:30.719 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/bin', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/lib/python3.11/site-packages', '/Users/joppemontezinos/PycharmProjects/school/My_code/src', '../../src/wa_cleaner']
+2024-09-24 15:44:30.719 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
+2024-09-24 15:44:30.919 | INFO     | wa_cleaner.preprocess:process:71 - Found 58294 records
+2024-09-24 15:44:30.934 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20240924-154430.csv
+2024-09-24 15:44:31.008 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-09-24 15:48:37.553 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/bin', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/PycharmProjects/school/My_code/myenv/lib/python3.11/site-packages', '/Users/joppemontezinos/PycharmProjects/school/My_code/src', '../../src/wa_cleaner']
+2024-09-24 15:48:37.554 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
+2024-09-24 15:48:37.752 | INFO     | wa_cleaner.preprocess:process:71 - Found 58294 records
+2024-09-24 15:48:37.772 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20240924-154837.csv
+2024-09-24 15:48:37.859 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wa-cleaner"
+version = "0.1.0"
+description = "WhatsApp Cleaner and Analyzer"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+
+[project.scripts]
+"analyzer" = "wa_cleaner.preprocess:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wa_cleaner"]
