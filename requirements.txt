@@ -11,3 +11,4 @@ matplotlib~=3.9.2
 requests
 emoji~=2.13.2
 textblob~=0.18.0.post0
+hatch
