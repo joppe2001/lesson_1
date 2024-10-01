@@ -3,6 +3,7 @@ from visualization import create_simple_message_frequency_plot
 from emoji_use import emoji_usage_chart
 from timestamp import visualize_hourly_activity
 from distribution_vis import analyze_whatsapp_data
+from dist_test import sentiment_distribution_analysis
 from distribution import sentiment_analysis
 import os
 
@@ -30,9 +31,12 @@ def main():
         os.path.join(current_dir, '..', 'images', 'hourly_activity.jpg'))
     print(f"Emoji usage chart saved as {output_path_emoji}")
 
-    output_path_dist = os.path.join(current_dir, '..', 'images')
-    sentiment_analysis(df, output_path_dist)
-    print("Analysis complete!")
+    # output_path_dist = os.path.join(current_dir, '..', 'images')
+    # sentiment_analysis(df, output_path_dist)
+    # print("Analysis complete!")
+
+    output_path_dist_test = os.path.join(current_dir, '..', 'images')
+    sentiment_distribution_analysis(df, output_path_dist_test)
 
 if __name__ == "__main__":
     main()

@@ -29,3 +29,8 @@
 2024-09-30 20:10:54.678 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
 2024-09-30 20:10:54.699 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20240930-201054.csv
 2024-09-30 20:10:54.810 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-10-01 18:12:11.106 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
+2024-10-01 18:12:11.106 | INFO     | wa_cleaner.preprocess:main:85 - Using Android regexes
+2024-10-01 18:12:11.395 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
+2024-10-01 18:12:11.416 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241001-181211.csv
+2024-10-01 18:12:11.525 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
