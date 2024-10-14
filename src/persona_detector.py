@@ -50,8 +50,7 @@ class TextClustering:
         plt.figure(figsize=(12, 8))
         scatter = plt.scatter(transformed[:, 0], transformed[:, 1], c=[hash(label) for label in labels])
         plt.legend(handles=scatter.legend_elements()[0], labels=list(set(labels)), title='Author',
-                   bbox_to_anchor=(1.05, 1),
-                   loc='upper left')
+                   bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.xticks([])
         plt.yticks([])
         plt.title("Distinct authors in the WhatsApp dataset")
@@ -97,3 +96,7 @@ if __name__ == "__main__":
     # Perform clustering and plot results
     clustering = TextClustering()
     clustering(text=text, k=100, labels=wa_labels, batch=False, method="tSNE")
+
+    print("Analysis complete. Results saved in the images/ directory.")
+    print(f"Total chunks analyzed: {len(wa_labels)}")
+    print(f"Number of unique authors: {len(set(wa_labels))}")
