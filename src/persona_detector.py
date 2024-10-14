@@ -50,11 +50,15 @@ class TextClustering:
         plt.figure(figsize=(12, 8))
         scatter = plt.scatter(transformed[:, 0], transformed[:, 1], c=[hash(label) for label in labels])
         plt.legend(handles=scatter.legend_elements()[0], labels=list(set(labels)), title='Author',
-                   bbox_to_anchor=(1.05, 1), loc='upper left')
+                   bbox_to_anchor=(1.05, 1),
+                   loc='upper left')
         plt.xticks([])
         plt.yticks([])
         plt.title("Distinct authors in the WhatsApp dataset")
         plt.tight_layout()
+
+        # Save the plot
+        plt.savefig('../images/whatsapp_author_clusters.png')
         plt.show()
 
 
