@@ -6,7 +6,7 @@ from emoji_use import emoji_usage_chart
 from timestamp import visualize_hourly_activity
 from distribution_vis import analyze_whatsapp_data
 from dist_test import sentiment_distribution_analysis
-from relations import run_whatsapp_analysis
+# from relations import run_whatsapp_analysis
 import os
 
 def load_data(file_path):
@@ -17,7 +17,7 @@ def load_data(file_path):
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    data_path = os.path.join(current_dir, '..', 'data', 'processed', 'whatsapp-20240930-201745.csv')
+    data_path = os.path.join(current_dir, '..', 'data', 'processed', 'whatsapp-20241008-161002.csv')
 
     df = load_data(data_path)
 
@@ -40,7 +40,7 @@ def main():
     # output_path_dist_test = os.path.join(current_dir, '..', 'images')
     # sentiment_distribution_analysis(df, output_path_dist_test)
 
-    run_whatsapp_analysis(df)
+    # run_whatsapp_analysis(df)
 
     show_relations(df)
 
