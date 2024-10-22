@@ -29,7 +29,7 @@ class ConfigHandler:
         return self.base_dir / self.config["raw"] / self.config["input"]
 
     def get_image_dir(self):
-        """Get the path to the images directory."""
+        """Get the path to the Images directory."""
         return self.base_dir / "images"
 
     def ensure_directories(self):

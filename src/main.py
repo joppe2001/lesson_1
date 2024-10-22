@@ -90,8 +90,4 @@ def info():
 
 
 if __name__ == "__main__":
-    config_test = ConfigHandler()
-    print(f"Looking for config file at: {config_test.config_path}")
-    print(f"Current working directory: {os.getcwd()}")
-    print(config_test)
     cli()
