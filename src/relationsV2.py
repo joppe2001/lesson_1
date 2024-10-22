@@ -11,9 +11,10 @@ import emoji
 from textblob import TextBlob
 from sklearn.preprocessing import MinMaxScaler
 
+
 # Constants
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(CURRENT_DIR, '..', 'data', 'processed', 'whatsapp-20240930-201745.csv')
+DATA_PATH = os.path.join(CURRENT_DIR, '..', 'data', 'processed', 'whatsapp-20241014-233116.csv')
 
 
 def load_data(file_path):
@@ -132,6 +133,7 @@ def main():
     # Load and preprocess data
     df = load_data(DATA_PATH)
     df = enrich_dataframe(df)
+    st.session_state.df = df
 
     # Display basic statistics
     st.header('Basic Statistics')
