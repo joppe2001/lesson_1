@@ -64,7 +64,7 @@ def enrich_dataframe(df):
     df['author_message_count'] = df['author'].map(author_message_counts)
 
     # Normalize numerical columns
-    numeric_columns = ['word_count', 'character_count', 'emoji_count', 'author_message_count']
+    numeric_columns = df.dtypes
     df[numeric_columns] = MinMaxScaler().fit_transform(df[numeric_columns])
 
     return df

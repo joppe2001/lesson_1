@@ -38,7 +38,7 @@ def emoji_usage_chart(df: pd.DataFrame, output_path: str) -> EmojiStats:
         percentage_by_author.index,
         percentage_by_author.values,
         color='#2ecc71',  # Fresh green color
-        width=0.6
+        width=0.8
     )
 
     # Customize the chart

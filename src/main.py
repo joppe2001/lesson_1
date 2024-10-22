@@ -1,9 +1,13 @@
 import pandas as pd
 import click
+from pathlib import Path
 from config_handler import ConfigHandler
 from visualization import create_simple_message_frequency_plot
 from emoji_use import emoji_usage_chart
 from timestamp import visualize_hourly_activity
+from dataclasses import dataclass
+from typing import Optional
+from distribution import SentimentAnalyzer, BasePlotter, ColumnConfig  # New import
 
 
 def load_data(file_path):
@@ -34,6 +38,34 @@ def create_hourly_activity(df, image_dir):
     click.echo(f"Hourly activity chart saved as {output_path}")
 
 
+def create_sentiment_analysis(df, image_dir):
+    """Generate sentiment analysis visualizations."""
+    # Initialize sentiment analyzer with default plot settings
+    plotter = BasePlotter(
+        figure_size=(12, 8),
+        style='seaborn-v0_8-darkgrid'
+    )
+
+    analyzer = SentimentAnalyzer(
+        columns=ColumnConfig(
+            timestamp='timestamp',
+            message='message',
+            author='author'
+        ),
+        plotter=plotter
+    )
+
+    # Create sentiment directory
+    sentiment_dir = image_dir / 'sentiment'
+    sentiment_dir.mkdir(exist_ok=True)
+
+    # Run analysis
+    results = analyzer.analyze(df, str(sentiment_dir))
+
+    click.echo(f"Sentiment analysis visualizations saved in {sentiment_dir}")
+    return results
+
+
 @click.group()
 def cli():
     """WhatsApp Chat Analysis Tool - Choose a visualization to generate."""
@@ -51,32 +83,35 @@ def visualize(all):
     df = load_data(data_path)
     image_dir = config.get_image_dir()
 
-    if all:
-        click.echo("Generating all visualizations...")
-        create_message_frequency(df, image_dir)
-        create_emoji_usage(df, image_dir)
-        create_hourly_activity(df, image_dir)
-        click.echo("All visualizations completed!")
-        return
-
     visualizations = {
         1: ("Message Frequency Plot", create_message_frequency),
         2: ("Emoji Usage Chart", create_emoji_usage),
         3: ("Hourly Activity Visualization", create_hourly_activity),
+        4: ("Sentiment Analysis", create_sentiment_analysis),  # New option
     }
+
+    if all:
+        click.echo("Generating all visualizations...")
+        for _, func in visualizations.values():
+            func(df, image_dir)
+        click.echo("All visualizations completed!")
+        return
 
     click.echo("Available visualizations:")
     for num, (name, _) in visualizations.items():
         click.echo(f"{num}. {name}")
 
-    choice = click.prompt("Please select a visualization (1-3)", type=int)
+    choice = click.prompt(
+        "Please select a visualization (1-4)",
+        type=click.IntRange(1, len(visualizations))
+    )
 
     if choice in visualizations:
         click.echo(f"\nGenerating {visualizations[choice][0]}...")
         visualizations[choice][1](df, image_dir)
         click.echo("Visualization completed!")
     else:
-        click.echo("Invalid choice. Please select a number between 1 and 3.")
+        click.echo("Invalid choice. Please select a number between 1 and 4.")
 
 
 @cli.command()
@@ -86,6 +121,26 @@ def info():
     click.echo("\nConfiguration Information:")
     click.echo(f"Data file: {config.get_processed_file_path()}")
     click.echo(f"Images directory: {config.get_image_dir()}")
+
+
+@cli.command()
+@click.option('--detailed', is_flag=True, help='Show detailed sentiment statistics')
+def sentiment(detailed):
+    """Analyze sentiment in chat messages."""
+    config = ConfigHandler()
+    config.ensure_directories()
+
+    data_path = config.get_processed_file_path()
+    df = load_data(data_path)
+    image_dir = config.get_image_dir()
+
+    click.echo("Running sentiment analysis...")
+    results = create_sentiment_analysis(df, image_dir)
+
+    if detailed:
+        click.echo("\nDetailed Sentiment Statistics:")
+        stats = results.groupby('author')['sentiment'].agg(['mean', 'std', 'count'])
+        click.echo(stats.round(3).to_string())
 
 
 if __name__ == "__main__":

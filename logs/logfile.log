@@ -1,20 +1,5 @@
-2024-10-08 16:10:02.178 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
-2024-10-08 16:10:02.179 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
-2024-10-08 16:10:02.469 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
-2024-10-08 16:10:02.488 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241008-161002.csv
-2024-10-08 16:10:02.585 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
-2024-10-14 21:48:17.765 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
-2024-10-14 21:48:17.765 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
-2024-10-14 21:48:17.789 | INFO     | wa_cleaner.preprocess:process:71 - Found 1762 records
-2024-10-14 21:48:17.790 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241014-214817.csv
-2024-10-14 21:48:17.797 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
-2024-10-14 21:55:24.119 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
-2024-10-14 21:55:24.120 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
-2024-10-14 21:55:24.425 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
-2024-10-14 21:55:24.443 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241014-215524.csv
-2024-10-14 21:55:24.545 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
-2024-10-14 22:21:58.602 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
-2024-10-14 22:21:58.602 | INFO     | wa_cleaner.preprocess:main:79 - Using iOS regexes
-2024-10-14 22:21:58.907 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
-2024-10-14 22:21:58.927 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241014-222158.csv
-2024-10-14 22:21:59.027 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-10-22 18:25:54.703 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
+2024-10-22 18:25:54.704 | INFO     | wa_cleaner.preprocess:main:85 - Using Android regexes
+2024-10-22 18:25:55.005 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
+2024-10-22 18:25:55.023 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241022-182555.csv
+2024-10-22 18:25:55.125 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
