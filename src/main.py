@@ -4,7 +4,6 @@ from config_handler import ConfigHandler
 from visualization import create_simple_message_frequency_plot
 from emoji_use import emoji_usage_chart
 from timestamp import visualize_hourly_activity
-import os
 
 
 def load_data(file_path):
