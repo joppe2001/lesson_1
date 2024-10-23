@@ -1,6 +1,5 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from collections import Counter
 import numpy as np
 from typing import List, Dict, Tuple
 from pathlib import Path
