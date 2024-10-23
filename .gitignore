@@ -2,3 +2,5 @@ data/processed/*
 data/raw/*
 /myenv/
 .env
+requirements.lock
+requirements-dev.lock
