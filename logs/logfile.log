@@ -13,3 +13,8 @@
 2024-10-23 12:22:43.144 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
 2024-10-23 12:22:43.165 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241023-122243.csv
 2024-10-23 12:22:43.270 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-10-23 18:44:02.629 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/visualizations/.venv/bin', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python311.zip', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11', '/Users/joppemontezinos/.rye/py/cpython@3.11.9/lib/python3.11/lib-dynload', '/Users/joppemontezinos/Documents/school/visualizations/.venv/lib/python3.11/site-packages', '/Users/joppemontezinos/Documents/school/visualizations/src', '../../src/wa_cleaner']
+2024-10-23 18:44:02.630 | INFO     | wa_cleaner.preprocess:main:85 - Using Android regexes
+2024-10-23 18:44:02.867 | INFO     | wa_cleaner.preprocess:process:71 - Found 65377 records
+2024-10-23 18:44:02.886 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241023-184402.csv
+2024-10-23 18:44:03.154 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!

@@ -7,7 +7,7 @@ name = "wa-cleaner"
 version = "0.1.0"
 description = "WhatsApp Cleaner and Analyzer"
 readme = "README.md"
-requires-python = ">=3.11,<=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "pandas~=2.2.3",
     "plotly~=5.24.1",
@@ -26,8 +26,7 @@ dependencies = [
     "tomli",
     "vaderSentiment",
     "pyarrow",
-    "fastparquet",
-    "pip"
+    "fastparquet"
 ]
 
 [project.scripts]
