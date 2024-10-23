@@ -3,3 +3,13 @@
 2024-10-22 18:25:55.005 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
 2024-10-22 18:25:55.023 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241022-182555.csv
 2024-10-22 18:25:55.125 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-10-23 12:16:21.018 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
+2024-10-23 12:16:21.019 | INFO     | wa_cleaner.preprocess:main:85 - Using Android regexes
+2024-10-23 12:16:21.049 | INFO     | wa_cleaner.preprocess:process:71 - Found 2834 records
+2024-10-23 12:16:21.053 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241023-121621.csv
+2024-10-23 12:16:21.062 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!
+2024-10-23 12:22:42.828 | DEBUG    | wa_cleaner.preprocess:<module>:20 - Python path: ['/Users/joppemontezinos/Documents/school/lesson_1/myenv/bin', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python312.zip', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12', '/Users/joppemontezinos/.pyenv/versions/3.12.0/lib/python3.12/lib-dynload', '/Users/joppemontezinos/Documents/school/lesson_1/myenv/lib/python3.12/site-packages', '/Users/joppemontezinos/Documents/school/lesson_1/src', '../../src/wa_cleaner']
+2024-10-23 12:22:42.828 | INFO     | wa_cleaner.preprocess:main:85 - Using Android regexes
+2024-10-23 12:22:43.144 | INFO     | wa_cleaner.preprocess:process:71 - Found 61360 records
+2024-10-23 12:22:43.165 | INFO     | wa_cleaner.preprocess:save:36 - Writing to data/processed/whatsapp-20241023-122243.csv
+2024-10-23 12:22:43.270 | SUCCESS  | wa_cleaner.preprocess:save:38 - Done!

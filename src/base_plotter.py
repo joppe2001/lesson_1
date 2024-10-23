@@ -5,6 +5,16 @@ import numpy as np
 import pandas as pd
 from typing import List, Tuple, Optional, Union
 import os
+from dataclasses import dataclass
+
+
+@dataclass
+class DimReductionData:
+    """Container for dimensionality reduction results."""
+    embedded_data: np.ndarray
+    labels: np.ndarray
+    explained_variance: Optional[float] = None
+
 
 
 class BasePlotter:
@@ -209,5 +219,64 @@ class BasePlotter:
         fig, ax = self.setup_figure(title)
         sns.heatmap(data, cmap=cmap, annot=annot, fmt=fmt, ax=ax)
 
+        if output_path:
+            self.save_plot(output_path)
+
+    def create_barchart(self,
+                        data: pd.DataFrame,
+                        title: str,
+                        xlabel: str,
+                        ylabel: str,
+                        output_path: Optional[str] = None) -> None:
+        """create bar chart with consistent styling"""
+        fig, ax = self.setup_figure(title)
+        sns.barplot(data=data, x=xlabel, y=ylabel, ax=ax)
+
+        if output_path:
+            self.save_plot(output_path)
+
+            # Add this method at the end of the BasePlotter class
+
+    def create_dim_reduction_plot(self,
+                                  data: DimReductionData,
+                                  title: str,
+                                  alpha: float = 0.6,
+                                  point_size: int = 100,
+                                  add_legend: bool = True,
+                                  output_path: Optional[str] = None) -> None:
+        fig, ax = self.setup_figure(title)
+
+        # Create scatter plot with unique colors for each label
+        scatter = ax.scatter(
+            data.embedded_data[:, 0],
+            data.embedded_data[:, 1],
+            c=pd.factorize(data.labels)[0],
+            alpha=alpha,
+            s=point_size,
+            cmap='tab20'  # Use a colormap that works well with multiple categories
+        )
+
+        # Add legend if requested
+        if add_legend:
+            legend = ax.legend(
+                scatter.legend_elements()[0],
+                np.unique(data.labels),
+                title="Labels",
+                loc="upper right"
+            )
+            ax.add_artist(legend)
+
+        # Add explained variance if available
+        if data.explained_variance is not None:
+            subtitle = f'Explained Variance: {data.explained_variance:.2%}'
+            ax.text(0.02, 0.98, subtitle,
+                    transform=ax.transAxes,
+                    verticalalignment='top')
+
+        # Set labels
+        ax.set_xlabel('First Component')
+        ax.set_ylabel('Second Component')
+
+        # Save if path provided
         if output_path:
             self.save_plot(output_path)

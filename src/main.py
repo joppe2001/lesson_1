@@ -7,7 +7,8 @@ from emoji_use import emoji_usage_chart
 from timestamp import visualize_hourly_activity
 from dataclasses import dataclass
 from typing import Optional
-from distribution import SentimentAnalyzer, BasePlotter, ColumnConfig  # New import
+from distribution import SentimentAnalyzer, BasePlotter, ColumnConfig
+from dimensionality import process_text_for_viz  # New import
 
 
 def load_data(file_path):
@@ -40,7 +41,6 @@ def create_hourly_activity(df, image_dir):
 
 def create_sentiment_analysis(df, image_dir):
     """Generate sentiment analysis visualizations."""
-    # Initialize sentiment analyzer with default plot settings
     plotter = BasePlotter(
         figure_size=(12, 8),
         style='seaborn-v0_8-darkgrid'
@@ -55,15 +55,66 @@ def create_sentiment_analysis(df, image_dir):
         plotter=plotter
     )
 
-    # Create sentiment directory
     sentiment_dir = image_dir / 'sentiment'
     sentiment_dir.mkdir(exist_ok=True)
 
-    # Run analysis
     results = analyzer.analyze(df, str(sentiment_dir))
-
     click.echo(f"Sentiment analysis visualizations saved in {sentiment_dir}")
     return results
+
+
+def create_text_clusters(df, image_dir):
+    """Generate text clustering visualizations using dimension reduction."""
+    dim_red_dir = image_dir / 'text_clusters'
+    dim_red_dir.mkdir(exist_ok=True)
+
+    click.echo("Starting text clustering analysis...")
+    click.echo("Note: This may take several minutes for large datasets.")
+
+    # Initialize plotter
+    plotter = BasePlotter(preset='minimal', figure_size=(10, 8))
+
+    # Process with t-SNE first (most time-consuming)
+    with click.progressbar(
+            length=1,
+            label='Generating t-SNE visualization'
+    ) as bar:
+        click.echo("\nAnalyzing t-SNE clusters...")
+        tsne_data = process_text_for_viz(
+            texts=df['message'].tolist(),
+            authors=df['author'].tolist(),
+            method='tsne',
+            analyze_clusters=True  # Add this parameter
+        )
+
+        plotter.create_dim_reduction_plot(
+            data=tsne_data,
+            title='Message Clustering by t-SNE (Sampled Data)',
+            output_path=str(dim_red_dir / 'tsne_clusters.jpg')
+        )
+        bar.update(1)
+
+    # Process with PCA (much faster)
+    with click.progressbar(
+            length=1,
+            label='Generating PCA visualization'
+    ) as bar:
+        click.echo("\nAnalyzing PCA clusters...")
+        pca_data = process_text_for_viz(
+            texts=df['message'].tolist(),
+            authors=df['author'].tolist(),
+            method='pca',
+            analyze_clusters=True  # Add this parameter
+        )
+
+        plotter.create_dim_reduction_plot(
+            data=pca_data,
+            title='Message Clustering by PCA (Sampled Data)',
+            output_path=str(dim_red_dir / 'pca_clusters.jpg')
+        )
+        bar.update(1)
+
+    click.echo(f"Text clustering visualizations saved in {dim_red_dir}")
 
 
 @click.group()
@@ -87,7 +138,8 @@ def visualize(all):
         1: ("Message Frequency Plot", create_message_frequency),
         2: ("Emoji Usage Chart", create_emoji_usage),
         3: ("Hourly Activity Visualization", create_hourly_activity),
-        4: ("Sentiment Analysis", create_sentiment_analysis),  # New option
+        4: ("Sentiment Analysis", create_sentiment_analysis),
+        5: ("Text Clustering", create_text_clusters),  # New option
     }
 
     if all:
@@ -102,7 +154,7 @@ def visualize(all):
         click.echo(f"{num}. {name}")
 
     choice = click.prompt(
-        "Please select a visualization (1-4)",
+        "Please select a visualization (1-5)",  # Updated range
         type=click.IntRange(1, len(visualizations))
     )
 
@@ -111,7 +163,7 @@ def visualize(all):
         visualizations[choice][1](df, image_dir)
         click.echo("Visualization completed!")
     else:
-        click.echo("Invalid choice. Please select a number between 1 and 4.")
+        click.echo("Invalid choice. Please select a number between 1 and 5.")
 
 
 @cli.command()
