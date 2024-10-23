@@ -228,9 +228,20 @@ class BasePlotter:
                         xlabel: str,
                         ylabel: str,
                         output_path: Optional[str] = None) -> None:
-        """create bar chart with consistent styling"""
+        """Create bar chart with consistent styling"""
         fig, ax = self.setup_figure(title)
-        sns.barplot(data=data, x=xlabel, y=ylabel, ax=ax)
+
+        # Ensure we're using the correct column names from the data
+        sns.barplot(
+            data=data,
+            x='Author',  # Use actual column name from DataFrame
+            y='Percentage',  # Use actual column name from DataFrame
+            ax=ax
+        )
+
+        # Set custom labels
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
 
         if output_path:
             self.save_plot(output_path)
@@ -278,5 +289,57 @@ class BasePlotter:
         ax.set_ylabel('Second Component')
 
         # Save if path provided
+        if output_path:
+            self.save_plot(output_path)
+
+    def create_boxplot(self,
+                       data: pd.DataFrame,
+                       x: str,
+                       y: str,
+                       title: str,
+                       ylabel: str,
+                       palette: str = 'husl',
+                       output_path: Optional[str] = None) -> None:
+        """
+        Create a boxplot with consistent styling.
+
+        Args:
+            data: DataFrame containing the data
+            x: Column name for x-axis (categories)
+            y: Column name for y-axis (values)
+            title: Plot title
+            ylabel: Y-axis label
+            palette: Color palette for the boxes
+            output_path: Optional path to save the plot
+        """
+        fig, ax = self.setup_figure(title)
+
+        # Create boxplot using seaborn
+        sns.boxplot(
+            data=data,
+            x=x,
+            y=y,
+            ax=ax,
+            palette=palette,
+            width=0.7,
+            fliersize=5
+        )
+
+        # Customize
+        ax.set_ylabel(ylabel)
+        plt.xticks(rotation=45)
+
+        # Add median values on top of each box
+        medians = data.groupby(x)[y].median()
+        for i, median in enumerate(medians):
+            ax.text(
+                i,
+                median,
+                f'{median:.2f}',
+                horizontalalignment='center',
+                verticalalignment='bottom',
+                fontweight='bold'
+            )
+
         if output_path:
             self.save_plot(output_path)

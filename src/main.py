@@ -3,7 +3,7 @@ import click
 from pathlib import Path
 from config_handler import ConfigHandler
 from visualization import create_simple_message_frequency_plot
-from emoji_use import emoji_usage_chart
+from emoji_use import EmojiAnalyzer, ChartConfig, OutputConfig
 from timestamp import visualize_hourly_activity
 from dataclasses import dataclass
 from typing import Optional
@@ -26,11 +26,60 @@ def create_message_frequency(df, image_dir):
 
 
 def create_emoji_usage(df, image_dir):
-    """Generate emoji usage visualization."""
-    output_path = image_dir / 'emoji_usage.jpg'
-    emoji_usage_chart(df, str(output_path))
-    click.echo(f"Emoji usage chart saved as {output_path}")
+    """Generate emoji usage visualization with custom settings."""
+    # Initialize plotter with desired style
+    plotter = BasePlotter(
+        preset='minimal',
+        figure_size=(12, 8),
+        style='seaborn-v0_8-whitegrid'
+    )
 
+    # Custom chart configuration
+    chart_config = ChartConfig(
+        title='Emoji Usage in Chat Messages',
+        xlabel='Chat Participant',
+        ylabel='Emoji Usage (%)',
+        figure_size=(14, 7),
+        annotation_settings={
+            'percentage': {
+                'fontweight': 'bold',
+                'va': 'bottom',
+                'ha': 'center',
+                'fontsize': 11
+            },
+            'count': {
+                'size': 9,
+                'va': 'top',
+                'ha': 'center',
+                'color': 'gray'
+            }
+        }
+    )
+
+    # Custom output configuration
+    output_config = OutputConfig(
+        round_digits=1,
+        print_summary=True,
+        save_chart=True
+    )
+
+    # Initialize analyzer with configurations
+    analyzer = EmojiAnalyzer(
+        chart_config=chart_config,
+        output_config=output_config,
+        plotter=plotter
+    )
+
+    # Set output path and run analysis
+    output_path = image_dir / 'emoji_usage.jpg'
+    stats = analyzer.analyze(df, str(output_path))
+
+    # Print additional insights if desired
+    click.echo(f"Emoji usage chart saved as {output_path}")
+    click.echo(f"Total messages analyzed: {stats.total_messages}")
+    click.echo(f"Messages with emojis: {stats.emoji_messages} ({stats.percentage:.1f}%)")
+
+    return stats
 
 def create_hourly_activity(df, image_dir):
     """Generate hourly activity visualization."""
@@ -84,7 +133,8 @@ def create_text_clusters(df, image_dir):
             texts=df['message'].tolist(),
             authors=df['author'].tolist(),
             method='tsne',
-            analyze_clusters=True  # Add this parameter
+            analyze_clusters=True,  # Add this parameter
+            sample_size=60000
         )
 
         plotter.create_dim_reduction_plot(

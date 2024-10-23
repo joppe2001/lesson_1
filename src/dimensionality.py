@@ -5,7 +5,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from base_plotter import DimReductionData
-from dimvis import ClusterAnalyzer
 import click
 from joblib import Memory
 from pathlib import Path
