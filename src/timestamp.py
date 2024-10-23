@@ -50,14 +50,6 @@ def analyze_hourly_activity(df: pd.DataFrame) -> ActivityStats:
 def visualize_hourly_activity(df: pd.DataFrame,
                               output_path: str,
                               style: Optional[ChartStyle] = None) -> ActivityStats:
-    """
-    Create a visualization of WhatsApp message frequency by hour of the day.
-
-    Args:
-        df: DataFrame containing WhatsApp chat data with 'timestamp' column
-        output_path: Path to save the output image
-        style: Optional ChartStyle object for customizing appearance
-    """
     style = style or ChartStyle()
     stats = analyze_hourly_activity(df)
 
